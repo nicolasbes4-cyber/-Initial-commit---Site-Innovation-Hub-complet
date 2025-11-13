@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation Hub | SharePoint Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0078D4;
+            --accent-orange: #FF8C00;
+            --light-gray: #f3f2f1;
+            --dark-gray: #323130;
+            --white: #ffffff;
+            --card-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), #005a9e);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .logo-text span {
+            color: var(--accent-orange);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a:hover {
+            color: var(--accent-orange);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-orange);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 120, 212, 0.85), rgba(0, 90, 158, 0.9)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 8rem 2rem 6rem;
+            margin-top: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: #e67e00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+        }
+
+        /* KPI Section */
+        .kpi-section {
+            background-color: var(--light-gray);
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--dark-gray);
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .kpi-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .kpi-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .kpi-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin: 0.5rem 0;
+        }
+
+        .kpi-label {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+        }
+
+        /* SECI Model Section */
+        .seci-section {
+            padding: 6rem 2rem;
+        }
+
+        .seci-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .seci-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 3px solid transparent;
+        }
+
+        .seci-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+            border-color: var(--primary-blue);
+        }
+
+        .seci-header {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .seci-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .seci-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .seci-content {
+            padding: 2rem;
+        }
+
+        .seci-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .seci-content p {
+            margin-bottom: 1rem;
+        }
+
+        /* Features Section */
+        .features-section {
+            background-color: var(--light-gray);
+            padding: 6rem 2rem;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .feature-header {
+            background: linear-gradient(135deg, var(--primary-blue), #005a9e);
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .feature-content {
+            padding: 2rem;
+        }
+
+        .feature-content h3 {
+            color: var(--primary-blue);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* Architecture Section */
+        .architecture-section {
+            padding: 6rem 2rem;
+        }
+
+        .architecture-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .architecture-text h2 {
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .architecture-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .architecture-diagram {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--primary-blue);
+        }
+
+        .architecture-diagram i {
+            font-size: 5rem;
+            color: var(--primary-blue);
+            opacity: 0.7;
+        }
+
+        /* Workflows Section */
+        .workflows-section {
+            background-color: var(--light-gray);
+            padding: 6rem 2rem;
+        }
+
+        .workflows-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .workflow-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--accent-orange);
+        }
+
+        .workflow-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .workflow-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .workflow-icon {
+            color: var(--accent-orange);
+            font-size: 1.8rem;
+        }
+
+        /* ROI Section */
+        .roi-section {
+            padding: 6rem 2rem;
+        }
+
+        .roi-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .roi-chart {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 2px solid var(--primary-blue);
+        }
+
+        .roi-chart i {
+            font-size: 4rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Deployment Section */
+        .deployment-section {
+            background: linear-gradient(135deg, var(--primary-blue), #005a9e);
+            color: var(--white);
+            padding: 6rem 2rem;
+        }
+
+        .deployment-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .deployment-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            min-width: 200px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .timeline-week {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--accent-orange);
+        }
+
+        /* Documentation Section */
+        .docs-section {
+            padding: 6rem 2rem;
+            background-color: var(--light-gray);
+        }
+
+        .docs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .doc-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .doc-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .doc-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-orange);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .architecture-container,
+            .roi-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .header-container {
+                padding: 0 1rem;
+            }
+
+            .kpi-container {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .timeline {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-lightbulb logo-icon"></i>
+                <div class="logo-text">Innovation <span>Hub</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#seci">Modèle SECI</a></li>
+                    <li><a href="#features">Fonctionnalités</a></li>
+                    <li><a href="#architecture">Architecture</a></li>
+                    <li><a href="#workflows">Workflows</a></li>
+                    <li><a href="#roi">ROI</a></li>
+                    <li><a href="#deployment">Déploiement</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Portail Innovation Hub</h1>
+        <p>Transformez la gestion de l'innovation avec une plateforme SharePoint complète et collaborative</p>
+        <a href="#features" class="cta-button">Découvrir les fonctionnalités</a>
+    </section>
+
+    <!-- KPI Section -->
+    <section class="kpi-section">
+        <div class="section-title">
+            <h2>Impact et Performance</h2>
+            <p>Mesurez le succès de votre plateforme d'innovation avec des indicateurs clés</p>
+        </div>
+        <div class="kpi-container">
+            <div class="kpi-card">
+                <i class="fas fa-brain kpi-icon"></i>
+                <div class="kpi-value">250+</div>
+                <div class="kpi-label">Idées soumises</div>
+            </div>
+            <div class="kpi-card">
+                <i class="fas fa-users kpi-icon"></i>
+                <div class="kpi-value">85%</div>
+                <div class="kpi-label">Taux d'engagement</div>
+            </div>
+            <div class="kpi-card">
+                <i class="fas fa-chart-line kpi-icon"></i>
+                <div class="kpi-value">42%</div>
+                <div class="kpi-label">ROI projeté</div>
+            </div>
+            <div class="kpi-card">
+                <i class="fas fa-bolt kpi-icon"></i>
+                <div class="kpi-value">15</div>
+                <div class="kpi-label">Projets lancés</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECI Model Section -->
+    <section class="seci-section" id="seci">
+        <div class="section-title">
+            <h2>Modèle SECI de Nonaka</h2>
+            <p>Notre approche structurée pour la création et le partage de connaissances</p>
+        </div>
+        <div class="seci-container">
+            <div class="seci-card">
+                <div class="seci-header">
+                    <i class="fas fa-comments seci-icon"></i>
+                    <h3 class="seci-title">Socialisation</h3>
+                </div>
+                <div class="seci-content">
+                    <h3>Partage d'expériences</h3>
+                    <p>Création de communautés de pratique, mentorat et partage de connaissances implicites à travers des interactions directes.</p>
+                    <p><strong>Exemple:</strong> Knowledge Café, sessions de brainstorming collaboratives.</p>
+                </div>
+            </div>
+            <div class="seci-card">
+                <div class="seci-header">
+                    <i class="fas fa-file-export seci-icon"></i>
+                    <h3 class="seci-title">Externalisation</h3>
+                </div>
+                <div class="seci-content">
+                    <h3>Documentation des connaissances</h3>
+                    <p>Transformation des connaissances implicites en connaissances explicites grâce à des outils de documentation structurée.</p>
+                    <p><strong>Exemple:</strong> Wiki collaboratif, bases de données de bonnes pratiques.</p>
+                </div>
+            </div>
+            <div class="seci-card">
+                <div class="seci-header">
+                    <i class="fas fa-project-diagram seci-icon"></i>
+                    <h3 class="seci-title">Combinaison</h3>
+                </div>
+                <div class="seci-content">
+                    <h3>Intégration des connaissances</h3>
+                    <p>Systématisation et combinaison de différentes sources de connaissances explicites pour créer de nouvelles connaissances.</p>
+                    <p><strong>Exemple:</strong> Tableaux de bord Power BI, rapports d'analyse croisée.</p>
+                </div>
+            </div>
+            <div class="seci-card">
+                <div class="seci-header">
+                    <i class="fas fa-sync-alt seci-icon"></i>
+                    <h3 class="seci-title">Internalisation</h3>
+                </div>
+                <div class="seci-content">
+                    <h3>Apprentissage par la pratique</h3>
+                    <p>Transformation des connaissances explicites en connaissances implicites par l'apprentissage et l'expérience pratique.</p>
+                    <p><strong>Exemple:</strong> Formation par les pairs, ateliers pratiques, retours d'expérience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="section-title">
+            <h2>Fonctionnalités Principales</h2>
+            <p>Découvrez les 4 piliers de notre plateforme SharePoint Innovation Hub</p>
+        </div>
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-header">
+                    <i class="fas fa-lightbulb feature-icon"></i>
+                    <h3 class="feature-title">IdeaBox</h3>
+                </div>
+                <div class="feature-content">
+                    <p>Plateforme collaborative pour soumettre, évaluer et développer des idées innovantes.</p>
+                    <h3>Fonctionnalités clés:</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Soumission d'idées avec catégorisation</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Système de vote et classement</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Attribution automatique de mentors</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Suivi du cycle de vie des idées</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-header">
+                    <i class="fas fa-book feature-icon"></i>
+                    <h3 class="feature-title">Wiki</h3>
+                </div>
+                <div class="feature-content">
+                    <p>Base de connaissances collaborative pour documenter et partager l'expertise organisationnelle.</p>
+                    <h3>Fonctionnalités clés:</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Édition collaborative en temps réel</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Versioning et historique complet</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Moteur de recherche intelligent</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Classification thématique</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-header">
+                    <i class="fas fa-award feature-icon"></i>
+                    <h3 class="feature-title">REX (Retours d'Expérience)</h3>
+                </div>
+                <div class="feature-content">
+                    <p>Plateforme de capitalisation des expériences et apprentissages pour éviter les erreurs répétées.</p>
+                    <h3>Fonctionnalités clés:</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Formulaires structurés de retour d'expérience</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Analyse des tendances et patterns</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Alertes préventives automatisées</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Intégration avec les processus qualité</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-header">
+                    <i class="fas fa-chart-bar feature-icon"></i>
+                    <h3 class="feature-title">Dashboard Power BI</h3>
+                </div>
+                <div class="feature-content">
+                    <p>Tableaux de bord interactifs pour piloter l'innovation et mesurer l'impact.</p>
+                    <h3>Fonctionnalités clés:</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> KPIs en temps réel</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Analyse prédictive</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Reporting personnalisable</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-blue);"></i> Alertes et notifications automatisées</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="architecture-section" id="architecture">
+        <div class="section-title">
+            <h2>Architecture Technique</h2>
+            <p>Solution SharePoint moderne et scalable intégrant l'écosystème Microsoft 365</p>
+        </div>
+        <div class="architecture-container">
+            <div class="architecture-text">
+                <h2>Architecture SharePoint Innovation Hub</h2>
+                <p>Notre solution repose sur une architecture moderne SharePoint Online intégrant parfaitement l'écosystème Microsoft 365 :</p>
+                
+                <h3>📦 Niveau Stockage & Données</h3>
+                <p><strong>SharePoint Online</strong> comme cœur de la plateforme, avec des bibliothèques de documents structurées, des listes SharePoint pour les métadonnées, et l'intégration native avec OneDrive pour le stockage personnel.</p>
+                
+                <h3>⚡ Niveau Intégration & Automatisation</h3>
+                <p><strong>Power Automate</strong> pour l'automatisation des workflows, <strong>Power Apps</strong> pour les interfaces utilisateur personnalisées, et <strong>Azure Functions</strong> pour les traitements complexes et l'intégration avec des systèmes externes.</p>
+                
+                <h3>📊 Niveau Analytique & Reporting</h3>
+                <p><strong>Power BI</strong> pour les tableaux de bord interactifs, <strong>Microsoft Viva Insights</strong> pour l'analyse comportementale, et <strong>Azure Synapse Analytics</strong> pour le Big Data et l'analyse prédictive.</p>
+                
+                <h3>🔒 Niveau Sécurité & Gouvernance</h3>
+                <p>Intégration avec <strong>Azure Active Directory</strong> pour l'authentification, <strong>Microsoft Purview</strong> pour la gouvernance des données, et <strong>Microsoft Defender</strong> pour la sécurité pro-active.</p>
+            </div>
+            <div class="architecture-diagram">
+                <i class="fas fa-network-wired"></i>
+                <p style="margin-top: 2rem; font-size: 1.2rem; color: var(--dark-gray);">
+                    Diagramme d'architecture interactif<br>(Cliquer pour agrandir)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflows Section -->
+    <section class="workflows-section" id="workflows">
+        <div class="section-title">
+            <h2>Workflows Power Automate</h2>
+            <p>Automatisation intelligente des processus métier pour accélérer l'innovation</p>
+        </div>
+        <div class="workflows-container">
+            <div class="workflow-card">
+                <h3><i class="fas fa-sync-alt workflow-icon"></i> Workflow IdeaBox</h3>
+                <p><strong>Déclencheur:</strong> Nouvelle idée soumise dans SharePoint</p>
+                <p><strong>Étapes:</strong></p>
+                <ul>
+                    <li>Validation automatique des métadonnées</li>
+                    <li>Notification aux modérateurs</li>
+                    <li>Affectation aléatoire d'un mentor</li>
+                    <li>Suivi des votes et classement</li>
+                    <li>Escalade si seuil de votes atteint</li>
+                </ul>
+                <p><strong>Temps de traitement:</strong> <span style="color: var(--accent-orange); font-weight: 600;">2-4 heures</span></p>
+            </div>
+            <div class="workflow-card">
+                <h3><i class="fas fa-book workflow-icon"></i> Workflow Publication Wiki</h3>
+                <p><strong>Déclencheur:</strong> Nouvelle page wiki créée ou modifiée</p>
+                <p><strong>Étapes:</strong></p>
+                <ul>
+                    <li>Vérification des droits d'auteur</li>
+                    <li>Validation par les experts métiers</li>
+                    <li>Publication progressive (draft → relecture → publication)</li>
+                    <li>Notification aux contributeurs</li>
+                    <li>Mise à jour automatique des index de recherche</li>
+                </ul>
+                <p><strong>Temps de traitement:</strong> <span style="color: var(--accent-orange); font-weight: 600;">24-48 heures</span></p>
+            </div>
+            <div class="workflow-card">
+                <h3><i class="fas fa-exclamation-triangle workflow-icon"></i> Workflow Alertes REX</h3>
+                <p><strong>Déclencheur:</strong> Détection de risque dans les retours d'expérience</p>
+                <p><strong>Étapes:</strong></p>
+                <ul>
+                    <li>Analyse sémantique des descriptions</li>
+                    <li>Détection de mots-clés critiques</li>
+                    <li>Croisement avec les données historiques</li>
+                    <li>Escalade aux responsables qualité</li>
+                    <li>Génération automatique de rapports préventifs</li>
+                </ul>
+                <p><strong>Temps de traitement:</strong> <span style="color: var(--accent-orange); font-weight: 600;">< 1 heure</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="roi-section" id="roi">
+        <div class="section-title">
+            <h2>ROI et Métriques de Succès</h2>
+            <p>Projection des bénéfices et indicateurs de performance sur 3 ans</p>
+        </div>
+        <div class="roi-container">
+            <div class="roi-text">
+                <h2>Projection ROI Innovation Hub</h2>
+                <p><strong>Investissement initial:</strong> 150 000€ (licence, développement, formation)</p>
+                <p><strong>Période d'amortissement:</strong> 14 mois</p>
+                
+                <h3>📈 Bénéfices Tangibles (année 1)</h3>
+                <ul>
+                    <li><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 0.5rem;"></i> Réduction de 30% des coûts de formation grâce au partage des connaissances</li>
+                    <li><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 0.5rem;"></i> Gains de productivité estimés à 250 000€/an</li>
+                    <li><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 0.5rem;"></i> Réduction de 40% des erreurs répétées grâce aux REX</li>
+                    <li><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 0.5rem;"></i> Accélération de 25% des processus d'innovation</li>
+                </ul>
+                
+                <h3>🎯 Bénéfices Intangibles</h3>
+                <ul>
+                    <li><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 0.5rem;"></i> Amélioration de l'engagement des employés (+35%)</li>
+                    <li><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 0.5rem;"></i> Renforcement de la culture collaborative</li>
+                    <li><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 0.5rem;"></i> Attractivité accrue pour les talents innovants</li>
+                    <li><i class="fas fa-check" style="color: var(--primary-blue); margin-right: 0.5rem;"></i> Positionnement comme entreprise apprenante</li>
+                </ul>
+            </div>
+            <div class="roi-chart">
+                <i class="fas fa-chart-pie"></i>
+                <h3 style="color: var(--white); margin-top: 1rem; font-size: 1.5rem;">ROI 3 Ans</h3>
+                <p style="color: #ccc; margin-top: 0.5rem; font-size: 1.2rem;">+42% ROI cumulé</p>
+                <div style="margin-top: 2rem; width: 80%; height: 40px; background: rgba(255,255,255,0.2); border-radius: 20px; overflow: hidden;">
+                    <div style="width: 85%; height: 100%; background: var(--accent-orange); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-weight: 600;">
+                        85%
+                    </div>
+                </div>
+                <p style="color: #aaa; margin-top: 1rem;">Taux d'adoption projeté</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deployment Section -->
+    <section class="deployment-section" id="deployment">
+        <div class="deployment-container">
+            <div class="deployment-title">
+                <h2>Plan de Déploiement sur 8 Semaines</h2>
+                <p>Approche agile et structurée pour un déploiement réussi</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-week">Semaine 1-2</div>
+                    <p>🎯 Analyse des besoins et conception</p>
+                    <p>- Ateliers avec les parties prenantes</p>
+                    <p>- Mapping des processus existants</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Semaine 3-4</div>
+                    <p>💻 Développement sprints</p>
+                    <p>- Configuration SharePoint</p>
+                    <p>- Développement workflows</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Semaine 5-6</div>
+                    <p>🔄 Tests et validation</p>
+                    <p>- Tests utilisateurs</p>
+                    <p>- Formation administrateurs</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Semaine 7-8</div>
+                    <p>🚀 Déploiement et adoption</p>
+                    <p>- Lancement progressif</p>
+                    <p>- Campagne de communication</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section class="docs-section" id="documentation">
+        <div class="section-title">
+            <h2>Documentation & Ressources</h2>
+            <p>Ressources complètes pour l'adoption et la maintenance</p>
+        </div>
+        <div class="docs-container">
+            <div class="doc-card">
+                <i class="fas fa-book-open doc-icon"></i>
+                <h3 class="doc-title">Guide Utilisateur</h3>
+                <p>Manuel complet pour les utilisateurs finaux avec captures d'écran et tutoriels pas à pas.</p>
+                <a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
+                    Télécharger <i class="fas fa-download" style="margin-left: 0.5rem;"></i>
+                </a>
+            </div>
+            <div class="doc-card">
+                <i class="fas fa-cogs doc-icon"></i>
+                <h3 class="doc-title">Documentation Technique</h3>
+                <p>Spécifications techniques détaillées, schémas d'architecture et guides d'administration.</p>
+                <a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
+                    Télécharger <i class="fas fa-download" style="margin-left: 0.5rem;"></i>
+                </a>
+            </div>
+            <div class="doc-card">
+                <i class="fas fa-video doc-icon"></i>
+                <h3 class="doc-title">Tutoriels Vidéo</h3>
+                <p>Série de vidéos explicatives pour chaque fonctionnalité et cas d'usage pratique.</p>
+                <a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
+                    Accéder <i class="fas fa-play" style="margin-left: 0.5rem;"></i>
+                </a>
+            </div>
+            <div class="doc-card">
+                <i class="fas fa-headset doc-icon"></i>
+                <h3 class="doc-title">Support & Maintenance</h3>
+                <p>Procédures de support, contacts d'urgence et plan de maintenance préventive.</p>
+                <a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 500; margin-top: 1rem; display: inline-block;">
+                    Voir le plan <i class="fas fa-file-alt" style="margin-left: 0.5rem;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Innovation Hub</h3>
+                <p>Plateforme SharePoint complète pour transformer la gestion de l'innovation dans votre organisation.</p>
+                <p style="margin-top: 1rem; color: #ccc;">
+                    <i class="fas fa-copyright"></i> 2025 - Tous droits réservés
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-right" style="margin-right: 0.5rem;"></i> Accueil</a></li>
+                    <li><a href="#features"><i class="fas fa-chevron-right" style="margin-right: 0.5rem;"></i> Fonctionnalités</a></li>
+                    <li><a href="#architecture"><i class="fas fa-chevron-right" style="margin-right: 0.5rem;"></i> Architecture</a></li>
+                    <li><a href="#deployment"><i class="fas fa-chevron-right" style="margin-right: 0.5rem;"></i> Déploiement</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--accent-orange);"></i> innovation@entreprise.com</li>
+                    <li><i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--accent-orange);"></i> +33 1 23 45 67 89</li>
+                    <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem; color: var(--accent-orange);"></i> Paris, France</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Plateforme SharePoint Innovation Hub - Solution complète pour l'innovation collaborative</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(0, 120, 212, 0.95)';
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, var(--primary-blue), #005a9e)';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Add scroll animation to elements
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.kpi-card, .seci-card, .feature-card, .workflow-card, .doc-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial state for animations
+        document.querySelectorAll('.kpi-card, .seci-card, .feature-card, .workflow-card, .doc-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+
+        // Initialize animations
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Interactive diagram click handler
+        document.querySelector('.architecture-diagram').addEventListener('click', function() {
+            alert('Diagramme d\'architecture interactif\n\nDans la version réelle, ce serait un diagramme dynamique montrant:\n- SharePoint Online comme cœur\n- Intégration Power Platform\n- Connexion aux données externes\n- Sécurité et gouvernance\n- Analytics et reporting');
+        });
+    </script>
+</body>
+</html>
