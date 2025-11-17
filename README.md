@@ -1,4 +1,4 @@
-# 🔒 Security Hub IA Enterprise  
+# 🔒 Security Hub IA Enterprise 
 ### *Preuve de compétence technique & métier — Nicolas Bès*
 
 > **« Dans un monde où l’adoption fait la sécurité, la simplicité n’est pas un compromis — c’est une compétence de leadership stratégique. »**  
