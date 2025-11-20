@@ -1,4 +1,4 @@
-# 🧠 Innovation Hub - Portail SECI
+#  Innovation Hub - Portail SECI
 
 Portail web de gestion de l’intelligence collective basé sur le modèle SECI (Socialisation, Externalisation, Combinaison, Internalisation) d’Ikujiro Nonaka.
 
