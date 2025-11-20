@@ -1,33 +1,40 @@
-# 🔒 Security Hub IA Enterprise
-### *Preuve de compétence technique & métier — Nicolas Bès*
+# 🧠 Innovation Hub - Portail SECI
 
-> **« Dans un monde où l’adoption fait la sécurité, la simplicité n’est pas un compromis — c’est une compétence de leadership stratégique. »**  
+Portail web de gestion de l’intelligence collective basé sur le modèle SECI (Socialisation, Externalisation, Combinaison, Internalisation) d’Ikujiro Nonaka.
 
-![Security Hub IA](https://via.placeholder.com/800x400/0f172a/6366f1?text=Security+Hub+IA+Enterprise)
+## 🎯 Objectif
 
-## 🎯 Objectif stratégique
-Transformer la **contrainte sécurité** (RGPD, ISO 27001) en **avantage business mesurable** via une plateforme unifiée SharePoint/GitHub — démonstration concrète de progression de *Chef de Projet Junior* à *Confirmé*.
+Démonstration de capacités techniques pour entretien de promotion : architecture d’information, développement front-end moderne, intégration SharePoint Online, et compréhension des enjeux de Knowledge Management.
 
-## 📊 ROI métier (90 jours)
-| Métrique | Avant | Après | Impact |
-|---------|-------|-------|--------|
-| ⏱️ Temps réponse incidents | 45 min | **16 min** | **-65%** |
-| 👥 Adoption non-techniciens | 35% | **95%** | **+210%** |
-| 💰 Coûts audit conformité | 15 k€ | **3,3 k€** | **-78%** |
-| 🚀 Déploiements sécurisés/mois | 8 | **45** | **+5.7x** |
+## 🚀 Démo en Ligne
 
-## 🛠 Architecture technique scalable (10 → 100+ utilisateurs)
-- ✅ **Un seul fichier `index.html`** : déploiement < 5 min, zéro configuration  
-- ✅ **PWA complète** : hors ligne, installation native, Service Worker  
-- ✅ **IA embarquée** : Copilot conversationnel (NLP), ML prédictif (simulé), visualisation 3D (Three.js)  
-- ✅ **Mobile-first** : hamburger menu animé, touch ≥56px, thème clair/sombre auto-détecté  
-- ✅ **Bibliothèque interactive** : fenêtres modales, recherche, catégorisation, commentaires  
+**Accédez au portail** :  
+https://nicolasbes4-cyber.github.io/-Initial-commit---Site-Innovation-Hub-complet/
 
-## 🎁 Pourquoi cette solution valide ma promotion ?
-1. **Vision business** : Chaque fonctionnalité IA est justifiée par un ROI quantifié  
-2. **Leadership technique** : Simplification délibérée = meilleure adoption = sécurité réelle  
-3. **Scalabilité** : Architecture conçue pour grandir avec l’organisation  
-4. **Pédagogie intégrée** : Le code lui-même est un outil de formation/mentorat  
+## 📋 Caractéristiques Techniques
 
-➡️ **[Découvrez la démo live](https://nicolasbes4-cyber.github.io/-Initial-commit---Site-Innovation-Hub-complet/)**  
-➡️ *Développé par Nicolas Bès
+- **Technologie** : HTML5 + CSS3 + JavaScript Vanilla (fichier unique)
+- **Compatibilité** : SharePoint Online Modern Experience
+- **Responsive** : Mobile, tablette, desktop (breakpoints inclus)
+- **Accessibilité** : WCAG 2.1 niveau AA
+- **Poids** : ~300 KB (zippé)
+- **Navigateurs** : Chrome, Edge, Firefox, Safari (versions récentes)
+
+## 🏗️ Architecture
+
+### Modèle SECI Implémenté
+
+1. **Socialisation (Tacite → Tacite)** : Communautés Yammer/Teams, annuaire d’expertise.
+2. **Externalisation (Tacite → Explicite)** : Formulaires Power Apps, bibliothèques documentaires.
+3. **Combinaison (Explicite → Explicite)** : Recherche unifiée, tableaux de bord Power BI.
+4. **Internalisation (Explicite → Tacite)** : Parcours d’apprentissage, quiz interactifs.
+
+### Stack Technique
+
+- **Front-End** : HTML5, CSS3 (variables CSS, Flexbox, Grid), JavaScript ES6+
+- **Design System** : Fluent UI (Microsoft) personnalisé, mode sombre auto
+- **Animations** : Transitions CSS, Intersection Observer (révélation au scroll)
+- **Accessibilité** : ARIA, navigation clavier, focus visible
+
+## 📁 Structure du Projet
+
